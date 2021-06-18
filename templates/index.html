@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+<!--falsk-bootstrap4 verificar -->
+
+{% block body %}
+    <form method='POST' action='/inserir'></form>
+        <dl>
+            <dt>Titulo:
+                <dd><input type='text size='30' name='titulo'></dd>
+
+            </dt>
+            <dt>Texto:
+                <dd><textarea rows='5' cols='40' name='texto'></textarea></dd>
+            
+
+
+            <dd><input type='submit', value='Publicar'></dd>
+            
+                </dt>
+        </dl>
+    </form>
+
+    <ul>
+        {% for entrada in entradas %}
+        <li>
+            <h2>{{ entrada.titulo }}</h2>{{ entrada.texto }}
+        </li>
+        {% else %}
+        <p>Inacredditável, ainda não tem nenhum  post.</p>
+        {% endfor %}
+    </ul>
+{% endblock %}
